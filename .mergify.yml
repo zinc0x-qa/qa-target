@@ -1,0 +1,7 @@
+queue_rules:
+  - name: default
+    batch_size: 1
+    queue_conditions:
+      - check-success=build
+    merge_conditions:
+      - check-success=build
