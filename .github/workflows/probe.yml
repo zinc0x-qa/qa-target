@@ -1,0 +1,16 @@
+name: probe
+on: [push]
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install mergify CLI
+        run: pip install mergify-cli
+      - name: Upload own repo via OIDC
+        run: mergify ci junit-process -r zinc0x-qa/qa-target report.xml -vvv
+      - name: Upload foreign repo mismatch probe
+        run: mergify ci junit-process -r mergify/cli report2.xml -vvv || true
