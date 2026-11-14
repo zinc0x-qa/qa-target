@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "qa build ok" && sleep 5
+      - run: echo "intentional failure" && exit 1
