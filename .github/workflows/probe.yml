@@ -11,6 +11,7 @@ jobs:
       - name: Install mergify CLI
         run: pip install mergify-cli
       - name: Upload own repo via OIDC
-        run: mergify ci junit-process -r zinc0x-qa/qa-target report.xml -vvv
+        run: mergify ci junit-process -r zinc0x-qa/qa-target report.xml -vvv || true
       - name: Upload foreign repo mismatch probe
+        if: always()
         run: mergify ci junit-process -r mergify/cli report2.xml -vvv || true
