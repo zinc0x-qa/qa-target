@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="qa-suite" tests="2" failures="1" time="0.02">
+    <testcase classname="qa.Poc" name="normal_passing_test" time="0.01"/>
+    <testcase classname="qa.Poc" name="probe_&quot;&gt;&lt;svg onload=alert(document.domain)&gt;" time="0.01">
+      <failure message="probe failure">stack</failure>
+    </testcase>
+  </testsuite>
+</testsuites>
